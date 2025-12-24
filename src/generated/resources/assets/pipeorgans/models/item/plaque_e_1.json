@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pipeorgans:item/plaques/background_octave_1",
+    "layer1": "pipeorgans:item/plaques/e"
+  }
+}

@@ -54,6 +54,18 @@ public class AllCreativeModeTabs {
                     })
                     .build());
 
+    public static RegistryObject<CreativeModeTab> PIPE_ORGANS_PLAQUES = CREATIVE_MODE_TABS.register("pipe_organs_plaques",
+            () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(AllItems.PLAQUES.get(0).get()))
+                    .title(Component.translatable("pipeorgans.creativetab.plaques"))
+                    .displayItems((params, output) -> {
+                        for (var plaque : AllItems.PLAQUES) {
+                            output.accept(plaque.get());
+                        }
+                    })
+                    .build()
+    );
+
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
     }

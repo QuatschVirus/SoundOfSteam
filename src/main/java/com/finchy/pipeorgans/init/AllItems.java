@@ -2,11 +2,14 @@ package com.finchy.pipeorgans.init;
 
 import com.finchy.pipeorgans.PipeOrgans;
 import com.finchy.pipeorgans.content.midi.MusicRollItem;
+import com.finchy.pipeorgans.content.plaques.PlaqueItems;
 import com.finchy.pipeorgans.data.AssetLookup;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
+
+import java.util.List;
 
 public class AllItems {
 
@@ -40,7 +43,8 @@ public class AllItems {
                 .register();
     }
 
-    public static void register() {
+    public static final List<ItemEntry<Item>> PLAQUES = PlaqueItems.register(REGISTRATE);
 
+    public static void register() {
     }
 }

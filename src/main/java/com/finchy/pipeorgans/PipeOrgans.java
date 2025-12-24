@@ -1,5 +1,6 @@
 package com.finchy.pipeorgans;
 
+import com.finchy.pipeorgans.content.plaques.PlaqueItems;
 import com.finchy.pipeorgans.data.PipeOrgansDatagen;
 import com.finchy.pipeorgans.init.*;
 import com.finchy.pipeorgans.midi.Proxy;
@@ -61,6 +62,8 @@ public class PipeOrgans {
 
     public PipeOrgans() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        modEventBus.addListener(PlaqueItems::gatherPlaqueData);
 
         REGISTRATE.registerEventListeners(modEventBus);
 

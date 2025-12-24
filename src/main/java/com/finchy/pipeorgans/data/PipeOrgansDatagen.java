@@ -20,6 +20,7 @@ public class PipeOrgansDatagen {
         addExtraRegistrateData();
 
         DataGenerator generator = event.getGenerator();
+
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
     }
