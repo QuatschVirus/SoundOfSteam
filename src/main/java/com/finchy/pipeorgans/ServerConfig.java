@@ -30,6 +30,11 @@ public class ServerConfig {
             .worldRestart()
             .define("clipboardAssistedPlacementEnabled", true);
 
+    private static final ForgeConfigSpec.BooleanValue SCANNING_PLACEMENT_ASSIST_ENABLED = BUILDER
+            .comment("Enable scanning placement assist mechanic on the server. Players can still have it disabled on the client side.")
+            .worldRestart()
+            .define("scanningPlacementAssistEnabled", true);
+
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
     public static long midiFileSizeLimit;
@@ -37,6 +42,7 @@ public class ServerConfig {
     public static long maxMidiPacketSize;
     public static int midiIdleTimeout;
     public static boolean clipboardAssistedPlacementEnabled;
+    public static boolean scanningPlacementAssistEnabled;
 
     @SubscribeEvent
     public static void onLoad(ModConfigEvent.Loading event) {
@@ -46,6 +52,7 @@ public class ServerConfig {
             maxMidiPacketSize = MAX_MIDI_PACKET_SIZE.get();
             midiIdleTimeout = MIDI_IDLE_TIMEOUT.get();
             clipboardAssistedPlacementEnabled = CLIPBOARD_ASSISTED_PLACEMENT_ENABLED.get();
+            scanningPlacementAssistEnabled = SCANNING_PLACEMENT_ASSIST_ENABLED.get();
         }
     }
     @SubscribeEvent
@@ -56,6 +63,7 @@ public class ServerConfig {
             maxMidiPacketSize = MAX_MIDI_PACKET_SIZE.get();
             midiIdleTimeout = MIDI_IDLE_TIMEOUT.get();
             clipboardAssistedPlacementEnabled = CLIPBOARD_ASSISTED_PLACEMENT_ENABLED.get();
+            scanningPlacementAssistEnabled = SCANNING_PLACEMENT_ASSIST_ENABLED.get();
         }
     }
 }

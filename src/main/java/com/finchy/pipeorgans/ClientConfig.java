@@ -1,10 +1,9 @@
 package com.finchy.pipeorgans;
 
+import com.finchy.pipeorgans.content.noteLink.scanningPlacementAssist.SPA;
 import com.finchy.pipeorgans.infrastructure.clipboardAssistedPlacement.CAPDirection;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.List;
 
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Forge's config APIs
@@ -21,6 +20,7 @@ public class ClientConfig {
             .comment("If true, octave values in goggle tooltips are shown in parentheses.")
             .define("showOctaveBrackets", false);
 
+    // Clipboard-Assisted Placement Configs
     public static final ForgeConfigSpec.BooleanValue CAP_ENABLED = BUILDER
             .comment("Enable the clipboard-assisted placement mechanic.")
             .define("clipboardAssistedPlacement.enabled", true);
@@ -32,6 +32,15 @@ public class ClientConfig {
     public static final ForgeConfigSpec.BooleanValue CAP_COPY_MODE = BUILDER
             .comment("If true, clipboard-assisted placement will copy the block's mode (where applicable, e.g. Receiver/Transmitter for Note Links) when placing.")
             .define("clipboardAssistedPlacement.copyMode", true);
+
+    // Scanning Placement Assist Configs
+    public static final ForgeConfigSpec.BooleanValue SPA_ENABLED = BUILDER
+            .comment("Enable the scanning placement assist mechanic.")
+            .define("scanningPlacementAssist.enabled", true);
+
+    static {
+        SPA.buildConfig(BUILDER);
+    }
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 
@@ -48,5 +57,6 @@ public class ClientConfig {
         capEnabled = CAP_ENABLED.get();
         capDefaultDirection = CAP_DEFAULT_DIRECTION.get();
         capCopyMode = CAP_COPY_MODE.get();
+        BUILDER.configure()
     }
 }
